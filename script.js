@@ -16,8 +16,9 @@ const fetchBooks = () => {
     })
     .catch((err) => console.log(err));
 };
-
+let carello = [];
 const contenitoreCards = document.getElementById("contenitoreCards");
+const cartList = document.getElementById("cartList");
 
 const createBookCard = function (book) {
   const col = document.createElement("div");
@@ -54,6 +55,9 @@ const createBookCard = function (book) {
   const buyButton = document.createElement("button");
   buyButton.classList.add("btn", "btn-success", "mt-2", "me-2");
   buyButton.textContent = "Compra ora";
+  buyButton.addEventListener("click", function () {
+    buyBook(book);
+  });
 
   const dangerButton = document.createElement("button");
   dangerButton.classList.add("btn", "btn-danger", "mt-2", "mx-2");
@@ -74,6 +78,15 @@ const createBookCard = function (book) {
   col.appendChild(card);
 
   contenitoreCards.appendChild(col);
+};
+
+const buyBook = function (book) {
+  const listItem = document.createElement("li");
+  listItem.classList.add("list-group-item", "mb-1");
+  listItem.textContent = book.title + " - €" + book.price;
+  cartList.appendChild(listItem);
+  carello.push(book);
+  localStorage.setItem("carello", JSON.stringify(carello));
 };
 
 window.addEventListener("DOMContentLoaded", fetchBooks);

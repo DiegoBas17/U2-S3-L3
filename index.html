@@ -15,6 +15,24 @@
     <main>
       <h1 class="text-center">Libreria</h1>
       <div class="container">
+        <p class="d-inline-flex gap-1">
+          <a
+            class="btn btn-primary"
+            data-bs-toggle="collapse"
+            href="#collapseList"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseList"
+          >
+            Carrello
+          </a>
+          <span
+            class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+          ></span>
+        </p>
+        <div class="collapse" id="collapseList">
+          <ul id="cartList" class="list-group"></ul>
+        </div>
         <div class="row g-2" id="contenitoreCards"></div>
       </div>
     </main>
