@@ -8,9 +8,9 @@ const fetchBooks = () => {
         throw new Error("Errore nel reperimento dei dati");
       }
     })
-    .then((libreriaObj) => {
-      console.log("Libreria", libreriaObj);
-      libreriaObj.forEach((book) => {
+    .then((libreria) => {
+      console.log("Libreria", libreria);
+      libreria.forEach((book) => {
         createBookCard(book);
       });
     })
